@@ -1,5 +1,7 @@
 node_modules/
 miniprogram_npm/
+
+# https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html
 project.private.config.json
 
 # https://yarnpkg.com/getting-started/qa#which-files-should-be-gitignored
