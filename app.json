@@ -1,8 +1,9 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/cart/cart",
     "pages/catalog/catalog",
-    "pages/cart/cart"
+    "pages/ucenter/index/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -33,6 +34,12 @@
         "iconPath": "static/images/cart.png",
         "selectedIconPath": "static/images/cart@selected.png",
         "text": "购物车"
+      },
+      {
+        "pagePath": "pages/ucenter/index/index",
+        "iconPath": "static/images/my.png",
+        "selectedIconPath": "static/images/my@selected.png",
+        "text": "个人"
       }
     ]
   },
@@ -42,6 +49,5 @@
     "uploadFile": 10000,
     "downloadFile": 10000
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json"
 }
