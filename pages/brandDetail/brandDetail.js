@@ -21,7 +21,7 @@ Page({
   },
 
   loadBrand() {
-    util.request(api.BrandDetail, { id: that.data.id })
+    util.request(api.BrandDetail, { id: this.data.id })
       .then((res) => {
         if (0 !== res.errno) {
           return;
