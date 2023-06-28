@@ -98,8 +98,8 @@ Page({
     }
 
     util.request(api.AuthBindPhone, {
-        iv: e.detail.iv,
-        encryptedData: e.detail.encryptedData,
+        iv: event.detail.iv,
+        encryptedData: event.detail.encryptedData,
       }, 'POST')
       .then((res) => {
         if (0 !== res.errno) {

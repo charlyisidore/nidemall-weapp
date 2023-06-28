@@ -34,7 +34,7 @@ Page({
         util.showErrorToast('微信登录失败');
         return;
       }
-      this.doLogin(e.detail.userInfo);
+      this.doLogin(event.detail.userInfo);
     }
   },
 
