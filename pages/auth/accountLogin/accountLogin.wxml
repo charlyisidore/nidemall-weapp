@@ -1,0 +1,18 @@
+<!--pages/auth/accountLogin/accountLogin.wxml-->
+<view class="container">
+  <view class="form-box">
+    <view class="form-item">
+      <input class="username" value="{{username}}" bindinput="handleUsernameInput" placeholder="账号" />
+      <van-icon name="close" wx:if="{{ username.length > 0 }}" id="clear-username" class="clear" catchtap="handleClearInputTap" />
+    </view>
+    <view class="form-item">
+      <input class="password" value="{{password}}" password bindinput="handlePasswordInput" placeholder="密码" />
+      <van-icon class="clear" id="clear-password" wx:if="{{ password.length > 0 }}" name="close" catchtap="handleClearInputTap" />
+    </view>
+    <button type="primary" class="login-btn" bindtap="handleAccountLoginTap">账号登录</button>
+    <view class="form-item-text">
+      <navigator url="/pages/auth/register/register" class="register">注册账号</navigator>
+      <navigator url="/pages/auth/reset/reset" class="reset">忘记密码</navigator>
+    </view>
+  </view>
+</view>
