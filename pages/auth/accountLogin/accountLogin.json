@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "账号登录",
-  "usingComponents": {}
+  "usingComponents": {
+    "van-icon": "/lib/vant-weapp/icon/index"
+  }
 }

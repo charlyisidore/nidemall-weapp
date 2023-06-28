@@ -1,4 +1,6 @@
 {
   "navigationBarTitleText": "注册",
-  "usingComponents": {}
+  "usingComponents": {
+    "van-icon": "/lib/vant-weapp/icon/index"
+  }
 }
