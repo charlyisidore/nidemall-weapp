@@ -4,6 +4,7 @@
     "pages/about/about",
     "pages/auth/accountLogin/accountLogin",
     "pages/auth/login/login",
+    "pages/auth/register/register",
     "pages/cart/cart",
     "pages/catalog/catalog",
     "pages/ucenter/index/index"
