@@ -12,7 +12,7 @@ Page({
   },
 
   // https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onLoad-Object-query
-  onLoad: function() {
+  onLoad() {
     this.loadCatalog();
   },
 
@@ -24,7 +24,7 @@ Page({
     wx.stopPullDownRefresh(); // 停止下拉刷新
   },
 
-  loadCatalog: function() {
+  loadCatalog() {
     wx.showLoading({ title: '加载中...' });
 
     util.request(api.CatalogList)
@@ -45,7 +45,7 @@ Page({
       });
   },
 
-  loadCurrentCategory: function(id) {
+  loadCurrentCategory(id) {
     util.request(api.CatalogCurrent, { id })
       .then((res) => {
         this.setData({
@@ -55,7 +55,7 @@ Page({
       });
   },
 
-  handleCategoryTap: function(event) {
+  handleCategoryTap(event) {
     const categoryId = event.currentTarget.dataset.id;
     if (this.data.currentCategory.id == categoryId) {
       return false;
