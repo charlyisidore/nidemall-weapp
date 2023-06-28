@@ -8,7 +8,6 @@ Page({
   data: {
     username: '',
     password: '',
-    code: '',
     loginErrorCount: 0,
   },
 
