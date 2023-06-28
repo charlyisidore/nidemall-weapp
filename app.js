@@ -1,5 +1,6 @@
 // app.js
 App({
+  // https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html#onLaunch-Object-object
   onLaunch() {
     // https://developers.weixin.qq.com/miniprogram/dev/api/base/update/UpdateManager.html
     const updateManager = wx.getUpdateManager();
