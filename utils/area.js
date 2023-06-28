@@ -3249,10 +3249,11 @@ function getList(type, code) {
   }
 
   const list = getConfig(type);
-  result = Object.keys(list).map((code) => ({
-    code,
-    name: list[code],
-  }));
+  result = Object.keys(list)
+    .map((code) => ({
+      code,
+      name: list[code],
+    }));
 
   if (code) {
     // Oversea code
