@@ -61,5 +61,5 @@ Page({
       return false;
     }
     this.loadCurrentCategory(categoryId);
-  }
+  },
 })
