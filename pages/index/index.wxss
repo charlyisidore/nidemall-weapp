@@ -1,4 +1,4 @@
-/**index.wxss**/
+/**pages/index/index.wxss**/
 .banner {
   width: 750rpx;
   height: 417rpx;

@@ -1,4 +1,4 @@
-<!--index.wxml-->
+<!--pages/index/index.wxml-->
 <view class="container">
   <view class="search">
     <navigator url="/pages/search/search" class="input">
