@@ -1,5 +1,11 @@
 // app.js
+const user = require('./utils/user.js');
+
 App({
+  globalData: {
+    hasLogin: false
+  },
+
   // https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html#onLaunch-Object-object
   onLaunch() {
     // https://developers.weixin.qq.com/miniprogram/dev/api/base/update/UpdateManager.html
@@ -16,5 +22,16 @@ App({
         },
       });
     });
+  },
+
+  // https://developers.weixin.qq.com/miniprogram/dev/reference/api/App.html#onShow-Object-object
+  onShow() {
+    user.checkLogin()
+      .then(() => {
+        this.globalData.hasLogin = true;
+      })
+      .catch(() => {
+        this.globalData.hasLogin = false;
+      });
   }
 })
