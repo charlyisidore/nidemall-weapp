@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/about/about",
     "pages/cart/cart",
     "pages/catalog/catalog",
     "pages/ucenter/index/index"
