@@ -1,4 +1,4 @@
-// index.js
+// pages/index/index.js
 const api = require('../../config/api.js');
 const util = require('../../utils/util.js');
 
@@ -62,10 +62,10 @@ Page({
 
   // https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onPullDownRefresh
   onPullDownRefresh() {
-    wx.showNavigationBarLoading(); //在标题栏中显示加载
+    wx.showNavigationBarLoading(); // 在标题栏中显示加载
     this.loadIndexData();
-    wx.hideNavigationBarLoading(); //完成停止加载
-    wx.stopPullDownRefresh(); //停止下拉刷新
+    wx.hideNavigationBarLoading(); // 完成停止加载
+    wx.stopPullDownRefresh(); // 停止下拉刷新
   },
 
   // https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onShareAppMessage-Object-object
