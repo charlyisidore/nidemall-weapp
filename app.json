@@ -6,6 +6,7 @@
     "pages/auth/login/login",
     "pages/auth/register/register",
     "pages/auth/reset/reset",
+    "pages/brand/brand",
     "pages/cart/cart",
     "pages/catalog/catalog",
     "pages/ucenter/index/index"
