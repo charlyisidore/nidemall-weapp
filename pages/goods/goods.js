@@ -164,7 +164,7 @@ Page({
   getGrouponInfo(grouponId) {
     util.request(api.GroupOnJoin, { grouponId })
       .then((res) => {
-        if (res.errno === 0) {
+        if (0 === res.errno) {
           this.setData({
             grouponLink: res.data.groupon,
             id: res.data.goods.id,
