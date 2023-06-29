@@ -12,6 +12,7 @@
     "pages/catalog/catalog",
     "pages/category/category",
     "pages/checkout/checkout",
+    "pages/comment/comment",
     "pages/ucenter/index/index"
   ],
   "window": {
