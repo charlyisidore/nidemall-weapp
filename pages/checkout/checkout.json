@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "填写订单",
+  "usingComponents": {
+    "van-icon": "/lib/vant-weapp/icon/index"
+  }
+}
