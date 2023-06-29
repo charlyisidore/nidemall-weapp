@@ -22,6 +22,7 @@
     "pages/help/help",
     "pages/hotGoods/hotGoods",
     "pages/newGoods/newGoods",
+    "pages/payResult/payResult",
     "pages/ucenter/index/index"
   ],
   "window": {
