@@ -1,0 +1,18 @@
+<!--pages/help/help.wxml-->
+<view class="container">
+  <view class="common-problem">
+    <view class="item" wx:for="{{issueList}}" wx:key="id">
+      <view class="question-box">
+        <text class="spot"></text>
+        <text class="question">{{item.question}}</text>
+      </view>
+      <view class="answer">
+        {{item.answer}}
+      </view>
+    </view>
+  </view>
+  <view class="page" wx:if="{{showPage}}">
+    <view class="prev {{ page <= 1 ? 'disabled' : ''}}" bindtap="handlePrevPageTap">上一页</view>
+    <view class="next {{ (count / limit) < page ? 'disabled' : ''}}" bindtap="handleNextPageTap">下一页</view>
+  </view>
+</view>

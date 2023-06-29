@@ -18,6 +18,8 @@
     "pages/goods/goods",
     "pages/groupon/grouponDetail/grouponDetail",
     "pages/groupon/grouponList/grouponList",
+    "pages/groupon/myGroupon/myGroupon",
+    "pages/help/help",
     "pages/ucenter/index/index"
   ],
   "window": {
