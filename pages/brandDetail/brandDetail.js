@@ -13,7 +13,7 @@ Page({
   },
 
   // https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onLoad-Object-query
-  onLoad() {
+  onLoad(options) {
     this.setData({
       id: parseInt(options.id),
     });
