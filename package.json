@@ -1,0 +1,11 @@
+{
+  "name": "nidemall-weapp",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "https://github.com/charlyisidore/nidemall-weapp",
+  "author": "Charly Lersteau",
+  "license": "MIT",
+  "devDependencies": {
+    "miniprogram-simulate": "^1.5.9"
+  }
+}
