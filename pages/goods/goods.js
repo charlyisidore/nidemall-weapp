@@ -424,7 +424,7 @@ Page({
     util.request(api.CollectAddOrDelete, {
         type: 0,
         valueId: this.data.id,
-      }, "POST")
+      }, 'POST')
       .then(() => {
         if (1 == this.data.userHasCollect) {
           this.setData({
@@ -475,7 +475,7 @@ Page({
           goodsId: this.data.goods.id,
           number: this.data.number,
           productId: checkedProduct.id,
-        }, "POST")
+        }, 'POST')
         .then((res) => {
           if (0 == res.errno) {
             // 如果storage中设置了cartId，则是立即购买，否则是购物车购买
@@ -526,7 +526,7 @@ Page({
           goodsId: this.data.goods.id,
           number: this.data.number,
           productId: checkedProduct.id,
-        }, "POST")
+        }, 'POST')
         .then((res) => {
           let _res = res;
           if (0 == _res.errno) {
