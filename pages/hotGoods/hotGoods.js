@@ -68,18 +68,6 @@ Page({
     this.loadGoodsList();
   },
 
-  loadCategoryList() {
-    util.request(api.GoodsFilter, { isHot: 1 })
-      .then((res) => {
-        if (0 !== res.errno) {
-          return;
-        }
-        this.setData({
-          filterCategory: res.data.filterCategoryList,
-        });
-      });
-  },
-
   loadGoodsList() {
     util.request(api.GoodsList, {
         isHot: true,
