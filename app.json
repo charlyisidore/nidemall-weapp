@@ -20,6 +20,7 @@
     "pages/groupon/grouponList/grouponList",
     "pages/groupon/myGroupon/myGroupon",
     "pages/help/help",
+    "pages/hotGoods/hotGoods",
     "pages/ucenter/index/index"
   ],
   "window": {
