@@ -21,6 +21,7 @@
     "pages/groupon/myGroupon/myGroupon",
     "pages/help/help",
     "pages/hotGoods/hotGoods",
+    "pages/newGoods/newGoods",
     "pages/ucenter/index/index"
   ],
   "window": {
