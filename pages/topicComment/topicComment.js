@@ -97,7 +97,7 @@ Page({
         valueId: this.data.valueId,
         type: this.data.type,
         limit: this.data.limit,
-        page: (this.data.showType == 0 ? this.data.allPage : this.data.picPage),
+        page: (0 == this.data.showType) ? this.data.allPage : this.data.picPage,
         showType: this.data.showType,
       })
       .then((res) => {
