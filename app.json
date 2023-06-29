@@ -24,6 +24,7 @@
     "pages/newGoods/newGoods",
     "pages/payResult/payResult",
     "pages/search/search",
+    "pages/topic/topic",
     "pages/ucenter/index/index"
   ],
   "window": {
