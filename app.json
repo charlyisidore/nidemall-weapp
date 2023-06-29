@@ -16,6 +16,7 @@
     "pages/commentPost/commentPost",
     "pages/coupon/coupon",
     "pages/goods/goods",
+    "pages/groupon/grouponDetail/grouponDetail",
     "pages/ucenter/index/index"
   ],
   "window": {
