@@ -23,6 +23,7 @@
     "pages/hotGoods/hotGoods",
     "pages/newGoods/newGoods",
     "pages/payResult/payResult",
+    "pages/search/search",
     "pages/ucenter/index/index"
   ],
   "window": {
