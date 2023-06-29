@@ -27,6 +27,7 @@
     "pages/topic/topic",
     "pages/topicComment/topicComment",
     "pages/topicCommentPost/topicCommentPost",
+    "pages/topicDetail/topicDetail",
     "pages/ucenter/index/index"
   ],
   "window": {

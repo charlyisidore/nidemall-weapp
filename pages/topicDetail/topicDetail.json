@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "专题详情",
+  "usingComponents": {
+    "van-icon": "/lib/vant-weapp/icon/index"
+  }
+}
