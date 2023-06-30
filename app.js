@@ -33,5 +33,5 @@ App({
       .catch(() => {
         this.globalData.hasLogin = false;
       });
-  }
+  },
 })
