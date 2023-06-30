@@ -31,7 +31,8 @@
     "pages/ucenter/index/index",
     "pages/ucenter/address/address",
     "pages/ucenter/addressAdd/addressAdd",
-    "pages/ucenter/aftersale/aftersale"
+    "pages/ucenter/aftersale/aftersale",
+    "pages/ucenter/aftersaleDetail/aftersaleDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
