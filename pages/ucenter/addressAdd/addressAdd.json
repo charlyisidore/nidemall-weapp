@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "编辑地址",
   "usingComponents": {
-    "van-checkbox": "/lib/vant-weapp/checkbox/index"
+    "van-checkbox": "@vant/weapp/checkbox/index"
   }
 }

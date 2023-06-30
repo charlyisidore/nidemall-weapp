@@ -1,7 +1,7 @@
 {
   "navigationBarTitleText": "团购详情",
   "usingComponents": {
-    "van-steps": "/lib/vant-weapp/steps/index",
-    "van-tag": "/lib/vant-weapp/tag/index"
+    "van-steps": "@vant/weapp/steps/index",
+    "van-tag": "@vant/weapp/tag/index"
   }
 }

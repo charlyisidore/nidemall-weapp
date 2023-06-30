@@ -3,6 +3,6 @@
   "enablePullDownRefresh": false,
   "backgroundColor": "#f4f4f4",
   "usingComponents": {
-    "van-icon": "/lib/vant-weapp/icon/index"
+    "van-icon": "@vant/weapp/icon/index"
   }
 }

@@ -1,12 +1,12 @@
 {
   "navigationBarTitleText": "售后",
   "usingComponents": {
-    "van-button": "/lib/vant-weapp/button/index",
-    "van-cell": "/lib/vant-weapp/cell/index",
-    "van-cell-group": "/lib/vant-weapp/cell-group/index",
-    "van-field": "/lib/vant-weapp/field/index",
-    "van-picker": "/lib/vant-weapp/picker/index",
-    "van-popup": "/lib/vant-weapp/popup/index",
-    "van-uploader": "/lib/vant-weapp/uploader/index"
+    "van-button": "@vant/weapp/button/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-field": "@vant/weapp/field/index",
+    "van-picker": "@vant/weapp/picker/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-uploader": "@vant/weapp/uploader/index"
   }
 }

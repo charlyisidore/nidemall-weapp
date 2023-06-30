@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "订单详情",
   "usingComponents": {
-    "van-icon": "/lib/vant-weapp/icon/index"
+    "van-icon": "@vant/weapp/icon/index"
   }
 }
