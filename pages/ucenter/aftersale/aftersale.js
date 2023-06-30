@@ -11,7 +11,11 @@ Page({
     aftersale: {
       pictures: []
     },
-    columns: ['未收货退款', '不退货退款', '退货退款'],
+    columns: [
+      '未收货退款',
+      '不退货退款',
+      '退货退款',
+    ],
     contentLength: 0,
     fileList: [],
   },
@@ -88,12 +92,12 @@ Page({
   },
 
   handleSubmitClick() {
-    if (undefined == that.data.aftersale.type) {
+    if (undefined == this.data.aftersale.type) {
       util.showErrorToast('请选择退款类型');
       return false;
     }
 
-    if ('' == that.data.reason) {
+    if ('' == this.data.reason) {
       util.showErrorToast('请输入退款原因');
       return false;
     }
@@ -104,7 +108,7 @@ Page({
       success: () => {},
     });
 
-    util.request(api.AftersaleSubmit, that.data.aftersale, 'POST')
+    util.request(api.AftersaleSubmit, this.data.aftersale, 'POST')
       .then((res) => {
         wx.hideLoading();
         if (0 !== res.errno) {
