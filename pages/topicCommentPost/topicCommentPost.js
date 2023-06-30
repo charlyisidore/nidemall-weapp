@@ -33,9 +33,10 @@ Page({
       return false;
     }
 
-    // TODO: replace with `wx.chooseMedia()`
-    wx.chooseImage({
+    // https://developers.weixin.qq.com/miniprogram/dev/api/media/video/wx.chooseMedia.html
+    wx.chooseMedia({
       count: 1,
+      mediaType: ['image'],
       sizeType: ['original', 'compressed'],
       sourceType: ['album', 'camera'],
       success: (res) => {
