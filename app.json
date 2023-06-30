@@ -28,7 +28,6 @@
     "pages/topicComment/topicComment",
     "pages/topicCommentPost/topicCommentPost",
     "pages/topicDetail/topicDetail",
-    "pages/ucenter/index/index",
     "pages/ucenter/address/address",
     "pages/ucenter/addressAdd/addressAdd",
     "pages/ucenter/aftersale/aftersale",
@@ -39,7 +38,9 @@
     "pages/ucenter/couponSelect/couponSelect",
     "pages/ucenter/feedback/feedback",
     "pages/ucenter/footprint/footprint",
-    "pages/ucenter/order/order"
+    "pages/ucenter/index/index",
+    "pages/ucenter/order/order",
+    "pages/ucenter/orderDetail/orderDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",
