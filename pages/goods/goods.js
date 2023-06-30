@@ -1,7 +1,6 @@
 // pages/goods/goods.js
 const api = require('../../config/api.js');
 const util = require('../../utils/util.js');
-const WxParse = require('../../lib/wxParse/wxParse.js');
 
 Page({
   // https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#data
@@ -32,6 +31,7 @@ Page({
     isGroupon: false, // 标识是否是一个参团购买
     soldout: false,
     canWrite: false, // 用户是否获取了保存相册的权限
+    goodsDetail: '',
   },
 
   // https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onLoad-Object-query
@@ -235,9 +235,8 @@ Page({
 
           this.setData({
             collect: (1 == res.data.userHasCollect),
+            goodsDetail: res.data.info.detail,
           });
-
-          WxParse.wxParse('goodsDetail', 'html', res.data.info.detail, this);
 
           // 获取推荐商品
           this.getGoodsRelated();

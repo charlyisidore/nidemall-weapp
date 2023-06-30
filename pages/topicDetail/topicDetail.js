@@ -1,7 +1,6 @@
 // pages/topicDetail/topicDetail.js
 const api = require('../../config/api.js');
 const util = require('../../utils/util.js');
-const WxParse = require('../../lib/wxParse/wxParse.js');
 const app = getApp();
 
 Page({
@@ -15,6 +14,7 @@ Page({
     topicGoods: [],
     collect: false,
     userHasCollect: 0,
+    topicDetail: '',
   },
 
   // https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onLoad-Object-query
@@ -33,8 +33,8 @@ Page({
           topicGoods: res.data.goods,
           userHasCollect: res.data.userHasCollect,
           collect: (1 == res.data.userHasCollect),
+          topicDetail: res.data.topic.content,
         });
-        WxParse.wxParse('topicDetail', 'html', res.data.topic.content, this);
       });
 
     util.request(api.TopicRelated, { id: this.data.id })
