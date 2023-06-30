@@ -677,8 +677,6 @@
   color: rgb(37, 36, 36);
 }
 
-@import "../../lib/wxParse/wxParse.wxss";
-
 .attr-pop-box {
   width: 100%;
   height: 100%;

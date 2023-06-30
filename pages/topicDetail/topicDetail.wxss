@@ -265,5 +265,3 @@
   width: 642rpx;
   font-size: 28rpx;
 }
-
-@import "../../lib/wxParse/wxParse.wxss";
