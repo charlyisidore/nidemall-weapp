@@ -34,7 +34,8 @@
     "pages/ucenter/aftersale/aftersale",
     "pages/ucenter/aftersaleDetail/aftersaleDetail",
     "pages/ucenter/aftersaleList/aftersaleList",
-    "pages/ucenter/collect/collect"
+    "pages/ucenter/collect/collect",
+    "pages/ucenter/couponList/couponList"
   ],
   "window": {
     "backgroundTextStyle": "light",
