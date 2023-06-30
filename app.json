@@ -33,7 +33,8 @@
     "pages/ucenter/addressAdd/addressAdd",
     "pages/ucenter/aftersale/aftersale",
     "pages/ucenter/aftersaleDetail/aftersaleDetail",
-    "pages/ucenter/aftersaleList/aftersaleList"
+    "pages/ucenter/aftersaleList/aftersaleList",
+    "pages/ucenter/collect/collect"
   ],
   "window": {
     "backgroundTextStyle": "light",
