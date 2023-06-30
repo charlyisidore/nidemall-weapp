@@ -15,9 +15,8 @@ Page({
   // https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onLoad-Object-query
   onLoad() {
     try {
-      var tab = wx.getStorageSync('tab');
       this.setData({
-        showType: tab,
+        showType: wx.getStorageSync('tab'),
       });
     } catch (e) {}
   },
