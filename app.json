@@ -29,7 +29,8 @@
     "pages/topicCommentPost/topicCommentPost",
     "pages/topicDetail/topicDetail",
     "pages/ucenter/index/index",
-    "pages/ucenter/address/address"
+    "pages/ucenter/address/address",
+    "pages/ucenter/addressAdd/addressAdd"
   ],
   "window": {
     "backgroundTextStyle": "light",
