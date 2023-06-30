@@ -37,7 +37,8 @@
     "pages/ucenter/collect/collect",
     "pages/ucenter/couponList/couponList",
     "pages/ucenter/couponSelect/couponSelect",
-    "pages/ucenter/feedback/feedback"
+    "pages/ucenter/feedback/feedback",
+    "pages/ucenter/footprint/footprint"
   ],
   "window": {
     "backgroundTextStyle": "light",
