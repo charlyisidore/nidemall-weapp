@@ -4,5 +4,8 @@
   "main": "app.js",
   "repository": "https://github.com/charlyisidore/nidemall-weapp",
   "author": "Charly Lersteau",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@vant/weapp": "^1.10.19"
+  }
 }
