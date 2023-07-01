@@ -43,10 +43,13 @@
     "pages/ucenter/orderDetail/orderDetail"
   ],
   "window": {
-    "backgroundTextStyle": "@backgroundTextStyle",
     "navigationBarTitleText": "nidemall小程序商城",
     "navigationBarBackgroundColor": "@navigationBarBackgroundColor",
-    "navigationBarTextStyle": "@navigationBarTextStyle"
+    "navigationBarTextStyle": "@navigationBarTextStyle",
+    "backgroundColor": "@backgroundColor",
+    "backgroundTextStyle": "@backgroundTextStyle",
+    "backgroundColorTop": "@backgroundColorTop",
+    "backgroundColorBottom": "@backgroundColorBottom"
   },
   "tabBar": {
     "color": "@tabBarColor",
