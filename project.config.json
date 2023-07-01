@@ -9,9 +9,12 @@
   "setting": {
     "coverView": true,
     "es6": true,
+    "enhance": true,
     "postcss": true,
     "minified": true,
-    "enhance": true,
+    "minifyWXSS": true,
+    "minifyWXML": true,
+    "ignoreUploadUnusedFiles": true,
     "showShadowRootInWxmlPanel": true,
     "packNpmRelationList": [],
     "babelSetting": {
