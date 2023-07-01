@@ -41,14 +41,14 @@ Page({
       this.setData({
         id: parseInt(options.id),
       });
-      this.getGoodsInfo();
+      this.loadGoodsInfo();
     }
 
     if (options.grouponId) {
       this.setData({
         isGroupon: true,
       });
-      this.getGrouponInfo(options.grouponId);
+      this.loadGrouponInfo(options.grouponId);
     }
 
     wx.getSetting({
@@ -162,7 +162,7 @@ Page({
   },
 
   // 从分享的团购进入
-  getGrouponInfo(grouponId) {
+  loadGrouponInfo(grouponId) {
     util.request(api.GroupOnJoin, { grouponId })
       .then((res) => {
         if (0 !== res.errno) {
@@ -173,12 +173,12 @@ Page({
           id: res.data.goods.id,
         });
         // 获取商品详情
-        this.getGoodsInfo();
+        this.loadGoodsInfo();
       });
   },
 
   // 获取商品信息
-  getGoodsInfo() {
+  loadGoodsInfo() {
     util.request(api.GoodsDetail, { id: this.data.id })
       .then((res) => {
         if (0 !== res.errno) {
@@ -243,12 +243,12 @@ Page({
         });
 
         // 获取推荐商品
-        this.getGoodsRelated();
+        this.loadGoodsRelated();
       });
   },
 
   // 获取推荐商品
-  getGoodsRelated() {
+  loadGoodsRelated() {
     util.request(api.GoodsRelated, { id: this.data.id })
       .then((res) => {
         if (0 !== res.errno) {
