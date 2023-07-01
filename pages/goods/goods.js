@@ -68,7 +68,7 @@ Page({
                 canWrite: false,
               });
             },
-          })
+          });
         } else {
           this.setData({
             canWrite: true,
@@ -82,11 +82,12 @@ Page({
   onShow() {
     util.request(api.CartGoodsCount)
       .then((res) => {
-        if (0 === res.errno) {
-          this.setData({
-            cartGoodsCount: res.data,
-          });
+        if (0 !== res.errno) {
+          return;
         }
+        this.setData({
+          cartGoodsCount: res.data,
+        });
       });
   },
 
@@ -164,14 +165,15 @@ Page({
   getGrouponInfo(grouponId) {
     util.request(api.GroupOnJoin, { grouponId })
       .then((res) => {
-        if (0 === res.errno) {
-          this.setData({
-            grouponLink: res.data.groupon,
-            id: res.data.goods.id,
-          });
-          // 获取商品详情
-          this.getGoodsInfo();
+        if (0 !== res.errno) {
+          return;
         }
+        this.setData({
+          grouponLink: res.data.groupon,
+          id: res.data.goods.id,
+        });
+        // 获取商品详情
+        this.getGoodsInfo();
       });
   },
 
@@ -179,68 +181,69 @@ Page({
   getGoodsInfo() {
     util.request(api.GoodsDetail, { id: this.data.id })
       .then((res) => {
-        if (0 === res.errno) {
-          let _specificationList = res.data.specificationList;
-          let _tmpPicUrl = res.data.productList[0].url;
-          // 如果仅仅存在一种货品，那么商品页面初始化时默认checked
-          if (_specificationList.length == 1) {
-            if (_specificationList[0].valueList.length == 1) {
-              _specificationList[0].valueList[0].checked = true
-              // 如果仅仅存在一种货品，那么商品价格应该和货品价格一致
-              // 这里检测一下
-              let _productPrice = res.data.productList[0].price;
-              let _goodsPrice = res.data.info.retailPrice;
-              if (_productPrice != _goodsPrice) {
-                console.error('商品数量价格和货品不一致');
-              }
-              this.setData({
-                checkedSpecText: _specificationList[0].valueList[0].value,
-                tmpSpecText: '已选择：' + _specificationList[0].valueList[0].value,
-              });
+        if (0 !== res.errno) {
+          return;
+        }
+        let _specificationList = res.data.specificationList;
+        let _tmpPicUrl = res.data.productList[0].url;
+        // 如果仅仅存在一种货品，那么商品页面初始化时默认checked
+        if (_specificationList.length == 1) {
+          if (_specificationList[0].valueList.length == 1) {
+            _specificationList[0].valueList[0].checked = true
+            // 如果仅仅存在一种货品，那么商品价格应该和货品价格一致
+            // 这里检测一下
+            let _productPrice = res.data.productList[0].price;
+            let _goodsPrice = res.data.info.retailPrice;
+            if (_productPrice != _goodsPrice) {
+              console.error('商品数量价格和货品不一致');
             }
-          }
-          res.data.info.path = `pages/goods/goods?id=${this.data.id}`;
-
-          this.setData({
-            goods: res.data.info,
-            attribute: res.data.attribute,
-            issueList: res.data.issue,
-            comment: res.data.comment,
-            brand: res.data.brand,
-            specificationList: res.data.specificationList,
-            productList: res.data.productList,
-            userHasCollect: res.data.userHasCollect,
-            shareImage: res.data.shareImage,
-            checkedSpecPrice: res.data.info.retailPrice,
-            groupon: res.data.groupon,
-            canShare: res.data.share,
-            // 选择规格时，默认展示第一张图片
-            tmpPicUrl: _tmpPicUrl,
-          });
-
-          // 如果是通过分享的团购参加团购，则团购项目应该与分享的一致并且不可更改
-          if (this.data.isGroupon) {
-            let groupons = this.data.groupon;
-            for (let i = 0; i < groupons.length; i++) {
-              if (groupons[i].id != this.data.grouponLink.rulesId) {
-                groupons.splice(i, 1);
-              }
-            }
-            groupons[0].checked = true;
-            // 重设团购规格
             this.setData({
-              groupon: groupons,
+              checkedSpecText: _specificationList[0].valueList[0].value,
+              tmpSpecText: '已选择：' + _specificationList[0].valueList[0].value,
             });
           }
-
-          this.setData({
-            collect: (1 == res.data.userHasCollect),
-            goodsDetail: res.data.info.detail,
-          });
-
-          // 获取推荐商品
-          this.getGoodsRelated();
         }
+        res.data.info.path = `pages/goods/goods?id=${this.data.id}`;
+
+        this.setData({
+          goods: res.data.info,
+          attribute: res.data.attribute,
+          issueList: res.data.issue,
+          comment: res.data.comment,
+          brand: res.data.brand,
+          specificationList: res.data.specificationList,
+          productList: res.data.productList,
+          userHasCollect: res.data.userHasCollect,
+          shareImage: res.data.shareImage,
+          checkedSpecPrice: res.data.info.retailPrice,
+          groupon: res.data.groupon,
+          canShare: res.data.share,
+          // 选择规格时，默认展示第一张图片
+          tmpPicUrl: _tmpPicUrl,
+        });
+
+        // 如果是通过分享的团购参加团购，则团购项目应该与分享的一致并且不可更改
+        if (this.data.isGroupon) {
+          let groupons = this.data.groupon;
+          for (let i = 0; i < groupons.length; i++) {
+            if (groupons[i].id != this.data.grouponLink.rulesId) {
+              groupons.splice(i, 1);
+            }
+          }
+          groupons[0].checked = true;
+          // 重设团购规格
+          this.setData({
+            groupon: groupons,
+          });
+        }
+
+        this.setData({
+          collect: (1 == res.data.userHasCollect),
+          goodsDetail: res.data.info.detail,
+        });
+
+        // 获取推荐商品
+        this.getGoodsRelated();
       });
   },
 
@@ -248,11 +251,12 @@ Page({
   getGoodsRelated() {
     util.request(api.GoodsRelated, { id: this.data.id })
       .then((res) => {
-        if (0 === res.errno) {
-          this.setData({
-            relatedGoods: res.data.list,
-          });
+        if (0 !== res.errno) {
+          return;
         }
+        this.setData({
+          relatedGoods: res.data.list,
+        });
       });
   },
 
@@ -476,17 +480,17 @@ Page({
           productId: checkedProduct.id,
         }, 'POST')
         .then((res) => {
-          if (0 == res.errno) {
-            // 如果storage中设置了cartId，则是立即购买，否则是购物车购买
-            try {
-              wx.setStorageSync('cartId', res.data);
-              wx.setStorageSync('grouponRulesId', checkedGroupon.id);
-              wx.setStorageSync('grouponLinkId', this.data.grouponLink.id);
-              wx.navigateTo({ url: '/pages/checkout/checkout' })
-            } catch (e) {}
-          } else {
+          if (0 != res.errno) {
             util.showErrorToast(res.errmsg);
+            return;
           }
+          // 如果storage中设置了cartId，则是立即购买，否则是购物车购买
+          try {
+            wx.setStorageSync('cartId', res.data);
+            wx.setStorageSync('grouponRulesId', checkedGroupon.id);
+            wx.setStorageSync('grouponLinkId', this.data.grouponLink.id);
+            wx.navigateTo({ url: '/pages/checkout/checkout' })
+          } catch (e) {}
         });
     }
   },
@@ -498,56 +502,57 @@ Page({
       this.setData({
         openAttr: !this.data.openAttr,
       });
-    } else {
-      // 提示选择完整规格
-      if (!this.isCheckedAllSpec()) {
-        util.showErrorToast('请选择完整规格');
-        return false;
-      }
-
-      // 根据选中的规格，判断是否有对应的sku信息
-      let checkedProductArray = this.getCheckedProductItem(this.getCheckedSpecKey());
-      if (!checkedProductArray || checkedProductArray.length <= 0) {
-        // 找不到对应的product信息，提示没有库存
-        util.showErrorToast('没有库存');
-        return false;
-      }
-
-      let checkedProduct = checkedProductArray[0];
-      // 验证库存
-      if (checkedProduct.number <= 0) {
-        util.showErrorToast('没有库存');
-        return false;
-      }
-
-      // 添加到购物车
-      util.request(api.CartAdd, {
-          goodsId: this.data.goods.id,
-          number: this.data.number,
-          productId: checkedProduct.id,
-        }, 'POST')
-        .then((res) => {
-          let _res = res;
-          if (0 == _res.errno) {
-            wx.showToast({ title: '添加成功' });
-            this.setData({
-              openAttr: !this.data.openAttr,
-              cartGoodsCount: _res.data,
-            });
-            if (this.data.userHasCollect == 1) {
-              this.setData({
-                collect: true,
-              });
-            } else {
-              this.setData({
-                collect: false,
-              });
-            }
-          } else {
-            util.showErrorToast(_res.errmsg);
-          }
-        });
+      return;
     }
+
+    // 提示选择完整规格
+    if (!this.isCheckedAllSpec()) {
+      util.showErrorToast('请选择完整规格');
+      return false;
+    }
+
+    // 根据选中的规格，判断是否有对应的sku信息
+    let checkedProductArray = this.getCheckedProductItem(this.getCheckedSpecKey());
+    if (!checkedProductArray || checkedProductArray.length <= 0) {
+      // 找不到对应的product信息，提示没有库存
+      util.showErrorToast('没有库存');
+      return false;
+    }
+
+    let checkedProduct = checkedProductArray[0];
+    // 验证库存
+    if (checkedProduct.number <= 0) {
+      util.showErrorToast('没有库存');
+      return false;
+    }
+
+    // 添加到购物车
+    util.request(api.CartAdd, {
+        goodsId: this.data.goods.id,
+        number: this.data.number,
+        productId: checkedProduct.id,
+      }, 'POST')
+      .then((res) => {
+        let _res = res;
+        if (0 != _res.errno) {
+          util.showErrorToast(_res.errmsg);
+          return;
+        }
+        wx.showToast({ title: '添加成功' });
+        this.setData({
+          openAttr: !this.data.openAttr,
+          cartGoodsCount: _res.data,
+        });
+        if (this.data.userHasCollect == 1) {
+          this.setData({
+            collect: true,
+          });
+        } else {
+          this.setData({
+            collect: false,
+          });
+        }
+      });
   },
 
   cutNumber() {
@@ -563,11 +568,12 @@ Page({
   },
 
   switchAttrPop() {
-    if (false == this.data.openAttr) {
-      this.setData({
-        openAttr: !this.data.openAttr,
-      });
+    if (false != this.data.openAttr) {
+      return;
     }
+    this.setData({
+      openAttr: !this.data.openAttr,
+    });
   },
 
   closeAttr() {
