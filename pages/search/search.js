@@ -61,7 +61,7 @@ Page({
   handleClearHistoryTap() {
     this.setData({
       historyKeyword: [],
-    })
+    });
     util.request(api.SearchClearHistory, {}, 'POST')
       .then(() => {
         console.log('清除成功');
@@ -110,16 +110,17 @@ Page({
     const currentIndex = event.target.dataset.categoryIndex;
     const filterCategory = this.data.filterCategory;
     let currentCategory = null;
-    for (let key in filterCategory) {
-      if (key == currentIndex) {
-        filterCategory[key].selected = true;
-        currentCategory = filterCategory[key];
-      } else {
-        filterCategory[key].selected = false;
-      }
-    }
+    Object.keys(filterCategory)
+      .forEach((key) => {
+        if (key == currentIndex) {
+          filterCategory[key].selected = true;
+          currentCategory = filterCategory[key];
+        } else {
+          filterCategory[key].selected = false;
+        }
+      });
     this.setData({
-      filterCategory: filterCategory,
+      filterCategory,
       categoryFilter: false,
       categoryId: currentCategory.id,
       page: 1,
@@ -192,5 +193,5 @@ Page({
       goodsList: [],
     });
     this.loadGoodsList();
-  }
+  },
 });

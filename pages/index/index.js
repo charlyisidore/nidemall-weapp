@@ -106,7 +106,7 @@ Page({
 
   handleCouponTap(event) {
     const couponId = event.currentTarget.dataset.index;
-    util.request(api.CouponReceive, { couponId: couponId }, 'POST')
+    util.request(api.CouponReceive, { couponId }, 'POST')
       .then((res) => {
         if (0 === res.errno) {
           wx.showToast({ title: '领取成功' });

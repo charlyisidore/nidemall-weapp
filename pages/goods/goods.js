@@ -74,7 +74,7 @@ Page({
             canWrite: true,
           });
         }
-      }
+      },
     });
   },
 
@@ -184,24 +184,22 @@ Page({
         if (0 !== res.errno) {
           return;
         }
-        let _specificationList = res.data.specificationList;
-        let _tmpPicUrl = res.data.productList[0].url;
+        const _specificationList = res.data.specificationList;
+        const _tmpPicUrl = res.data.productList[0].url;
         // 如果仅仅存在一种货品，那么商品页面初始化时默认checked
-        if (_specificationList.length == 1) {
-          if (_specificationList[0].valueList.length == 1) {
-            _specificationList[0].valueList[0].checked = true
-            // 如果仅仅存在一种货品，那么商品价格应该和货品价格一致
-            // 这里检测一下
-            let _productPrice = res.data.productList[0].price;
-            let _goodsPrice = res.data.info.retailPrice;
-            if (_productPrice != _goodsPrice) {
-              console.error('商品数量价格和货品不一致');
-            }
-            this.setData({
-              checkedSpecText: _specificationList[0].valueList[0].value,
-              tmpSpecText: '已选择：' + _specificationList[0].valueList[0].value,
-            });
+        if (1 == _specificationList.length && 1 == _specificationList[0].valueList.length) {
+          _specificationList[0].valueList[0].checked = true;
+          // 如果仅仅存在一种货品，那么商品价格应该和货品价格一致
+          // 这里检测一下
+          const _productPrice = res.data.productList[0].price;
+          const _goodsPrice = res.data.info.retailPrice;
+          if (_productPrice != _goodsPrice) {
+            console.error('商品数量价格和货品不一致');
           }
+          this.setData({
+            checkedSpecText: _specificationList[0].valueList[0].value,
+            tmpSpecText: `已选择：${_specificationList[0].valueList[0].value}`,
+          });
         }
         res.data.info.path = `pages/goods/goods?id=${this.data.id}`;
 
@@ -224,7 +222,7 @@ Page({
 
         // 如果是通过分享的团购参加团购，则团购项目应该与分享的一致并且不可更改
         if (this.data.isGroupon) {
-          let groupons = this.data.groupon;
+          const groupons = this.data.groupon;
           for (let i = 0; i < groupons.length; i++) {
             if (groupons[i].id != this.data.grouponLink.rulesId) {
               groupons.splice(i, 1);
@@ -267,8 +265,8 @@ Page({
       return;
     }
 
-    let specValueId = event.currentTarget.dataset.valueId;
-    let _grouponList = this.data.groupon;
+    const specValueId = event.currentTarget.dataset.valueId;
+    const _grouponList = this.data.groupon;
 
     for (let i = 0; i < _grouponList.length; i++) {
       if (_grouponList[i].id == specValueId) {
@@ -289,12 +287,12 @@ Page({
 
   // 规格选择
   handleClickSkuValueTap(event) {
-    let specName = event.currentTarget.dataset.name;
-    let specValueId = event.currentTarget.dataset.valueId;
+    const specName = event.currentTarget.dataset.name;
+    const specValueId = event.currentTarget.dataset.valueId;
 
     // 判断是否可以点击
     // TODO 性能优化，可在wx:for中添加index，可以直接获取点击的属性名和属性值，不用循环
-    let _specificationList = this.data.specificationList;
+    const _specificationList = this.data.specificationList;
     for (let i = 0; i < _specificationList.length; i++) {
       if (_specificationList[i].name === specName) {
         for (let j = 0; j < _specificationList[i].valueList.length; j++) {
@@ -322,7 +320,7 @@ Page({
   // 获取选中的团购信息
   getCheckedGrouponValue() {
     let checkedValues = {};
-    let _grouponList = this.data.groupon;
+    const _grouponList = this.data.groupon;
     for (let i = 0; i < _grouponList.length; i++) {
       if (_grouponList[i].checked) {
         checkedValues = _grouponList[i];
@@ -333,10 +331,10 @@ Page({
 
   // 获取选中的规格信息
   getCheckedSpecValue() {
-    let checkedValues = [];
-    let _specificationList = this.data.specificationList;
+    const checkedValues = [];
+    const _specificationList = this.data.specificationList;
     for (let i = 0; i < _specificationList.length; i++) {
-      let _checkedObj = {
+      const _checkedObj = {
         name: _specificationList[i].name,
         valueId: 0,
         valueText: '',
@@ -365,10 +363,10 @@ Page({
 
   // 规格改变时，重新计算价格及显示信息
   changeSpecInfo() {
-    let checkedNameValue = this.getCheckedSpecValue();
+    const checkedNameValue = this.getCheckedSpecValue();
 
     // 设置选择的信息
-    let checkedValue = checkedNameValue.filter((v) => (0 != v.valueId))
+    const checkedValue = checkedNameValue.filter((v) => (0 != v.valueId))
       .map((v) => v.valueText);
     if (checkedValue.length > 0) {
       this.setData({
@@ -386,7 +384,7 @@ Page({
       });
 
       // 规格所对应的货品选择以后
-      let checkedProductArray = this.getCheckedProductItem(this.getCheckedSpecKey());
+      const checkedProductArray = this.getCheckedProductItem(this.getCheckedSpecKey());
       if (!checkedProductArray || checkedProductArray.length <= 0) {
         this.setData({
           soldout: true,
@@ -395,7 +393,7 @@ Page({
         return;
       }
 
-      let checkedProduct = checkedProductArray[0];
+      const checkedProduct = checkedProductArray[0];
       if (checkedProduct.number > 0) {
         this.setData({
           checkedSpecPrice: checkedProduct.price,
@@ -458,21 +456,21 @@ Page({
       }
 
       // 根据选中的规格，判断是否有对应的sku信息
-      let checkedProductArray = this.getCheckedProductItem(this.getCheckedSpecKey());
+      const checkedProductArray = this.getCheckedProductItem(this.getCheckedSpecKey());
       if (!checkedProductArray || checkedProductArray.length <= 0) {
         // 找不到对应的product信息，提示没有库存
         util.showErrorToast('没有库存');
         return false;
       }
 
-      let checkedProduct = checkedProductArray[0];
+      const checkedProduct = checkedProductArray[0];
       // 验证库存
       if (checkedProduct.number <= 0) {
         util.showErrorToast('没有库存');
         return false;
       }
       // 验证团购是否有效
-      let checkedGroupon = this.getCheckedGrouponValue();
+      const checkedGroupon = this.getCheckedGrouponValue();
       // 立即购买
       util.request(api.CartFastAdd, {
           goodsId: this.data.goods.id,
@@ -489,7 +487,7 @@ Page({
             wx.setStorageSync('cartId', res.data);
             wx.setStorageSync('grouponRulesId', checkedGroupon.id);
             wx.setStorageSync('grouponLinkId', this.data.grouponLink.id);
-            wx.navigateTo({ url: '/pages/checkout/checkout' })
+            wx.navigateTo({ url: '/pages/checkout/checkout' });
           } catch (e) {}
         });
     }
@@ -512,14 +510,14 @@ Page({
     }
 
     // 根据选中的规格，判断是否有对应的sku信息
-    let checkedProductArray = this.getCheckedProductItem(this.getCheckedSpecKey());
+    const checkedProductArray = this.getCheckedProductItem(this.getCheckedSpecKey());
     if (!checkedProductArray || checkedProductArray.length <= 0) {
       // 找不到对应的product信息，提示没有库存
       util.showErrorToast('没有库存');
       return false;
     }
 
-    let checkedProduct = checkedProductArray[0];
+    const checkedProduct = checkedProductArray[0];
     // 验证库存
     if (checkedProduct.number <= 0) {
       util.showErrorToast('没有库存');
@@ -533,17 +531,16 @@ Page({
         productId: checkedProduct.id,
       }, 'POST')
       .then((res) => {
-        let _res = res;
-        if (0 != _res.errno) {
-          util.showErrorToast(_res.errmsg);
+        if (0 != res.errno) {
+          util.showErrorToast(res.errmsg);
           return;
         }
         wx.showToast({ title: '添加成功' });
         this.setData({
           openAttr: !this.data.openAttr,
-          cartGoodsCount: _res.data,
+          cartGoodsCount: res.data,
         });
-        if (this.data.userHasCollect == 1) {
+        if (1 == this.data.userHasCollect) {
           this.setData({
             collect: true,
           });
