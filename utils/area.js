@@ -1,3 +1,4 @@
+/* eslint-disable */
 const areaList = {
   "province_list": {
     "110000": "北京市",
@@ -3237,6 +3238,7 @@ const areaList = {
     "659006": "铁门关市"
   }
 };
+/* eslint-enable */
 
 function getConfig(type) {
   return (areaList && areaList[`${type}_list`]) || {};
@@ -3260,7 +3262,6 @@ function getList(type, code) {
     if ('9' === code[0] && 'city' === type) {
       code = '9';
     }
-
     result = result.filter((item) => 0 === item.code.indexOf(code));
   }
 
@@ -3269,7 +3270,7 @@ function getList(type, code) {
 
 // Get index by code
 function getIndex(type, code) {
-  let compareNum = ('province' === type) ? 2 : ('city' === type) ? 4 : 6;
+  let compareNum = ('province' === type) ? 2 : (('city' === type) ? 4 : 6);
   const list = getList(type, code.slice(0, compareNum - 2));
 
   // Oversea code

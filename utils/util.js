@@ -23,28 +23,26 @@ function formatTime(date) {
  * 封封微信的的request
  */
 function request(url, data = {}, method = 'GET') {
-  return new Promise(function(resolve, reject) {
+  return new Promise((resolve, reject) => {
     wx.request({
       url,
       data,
       method,
       header: {
         'Content-Type': 'application/json',
-        'X-Litemall-Token': wx.getStorageSync('token')
+        'X-Litemall-Token': wx.getStorageSync('token'),
       },
-      success: function(res) {
-        if (res.statusCode == 200) {
-          if (res.data.errno == 501) {
+      success: (res) => {
+        if (200 == res.statusCode) {
+          if (501 == res.data.errno) {
             // 清除登录相关内容
             try {
               wx.removeStorageSync('userInfo');
               wx.removeStorageSync('token');
-            } catch (e) {
-              // Do something when catch error
-            }
+            } catch (e) {}
             // 切换到登录页面
             wx.navigateTo({
-              url: '/pages/auth/login/login'
+              url: '/pages/auth/login/login',
             });
           } else {
             resolve(res.data);
@@ -53,9 +51,9 @@ function request(url, data = {}, method = 'GET') {
           reject(res.errMsg);
         }
       },
-      fail: function(err) {
+      fail: (err) => {
         reject(err);
-      }
+      },
     });
   });
 }
@@ -67,7 +65,7 @@ function redirect(url) {
 function showErrorToast(msg) {
   wx.showToast({
     title: msg,
-    image: '/static/images/icon_error.png'
+    image: '/static/images/icon_error.png',
   });
 }
 
