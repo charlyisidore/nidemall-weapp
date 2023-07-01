@@ -137,6 +137,8 @@ Page({
           code: '',
         });
         break;
+      default:
+        break;
     }
   },
 });

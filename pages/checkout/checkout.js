@@ -55,12 +55,12 @@ Page({
       }
 
       this.setData({
-        cartId: cartId,
-        addressId: addressId,
-        couponId: couponId,
-        userCouponId: userCouponId,
-        grouponRulesId: grouponRulesId,
-        grouponLinkId: grouponLinkId,
+        cartId,
+        addressId,
+        couponId,
+        userCouponId,
+        grouponRulesId,
+        grouponLinkId,
       });
     } catch (e) {
       console.log(e);

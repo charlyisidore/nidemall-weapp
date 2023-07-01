@@ -45,7 +45,7 @@ Page({
         }
         this.setData({
           cartGoods: res.data.cartList,
-          cartTotal: res.data.cartTotal
+          cartTotal: res.data.cartTotal,
         });
         this.setData({
           checkedAllStatus: this.isCheckedAll(),
@@ -69,7 +69,12 @@ Page({
   },
 
   updateCart(productId, goodsId, number, id) {
-    util.request(api.CartUpdate, { productId, goodsId, number, id }, 'POST')
+    util.request(api.CartUpdate, {
+        productId,
+        goodsId,
+        number,
+        id,
+      }, 'POST')
       .then(() => {
         this.setData({
           checkedAllStatus: this.isCheckedAll(),
@@ -155,7 +160,7 @@ Page({
     if (this.data.isEditCart) {
       this.loadCartList();
       this.setData({
-        isEditCart: !this.data.isEditCart
+        isEditCart: !this.data.isEditCart,
       });
     } else {
       // 编辑状态
@@ -206,7 +211,7 @@ Page({
     // storage中设置了cartId，则是购物车购买
     try {
       wx.setStorageSync('cartId', 0);
-      wx.navigateTo({ url: '/pages/checkout/checkout' })
+      wx.navigateTo({ url: '/pages/checkout/checkout' });
     } catch (e) {}
   },
 

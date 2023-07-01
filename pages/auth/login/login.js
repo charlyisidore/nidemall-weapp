@@ -1,6 +1,7 @@
 // pages/auth/login/login.js
 const util = require('../../../utils/util.js');
 const user = require('../../../utils/user.js');
+const app = getApp();
 
 Page({
   // https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#data

@@ -45,7 +45,7 @@ Page({
             showCancel: false,
           });
         }
-      }
+      },
     });
   },
 
@@ -148,6 +148,8 @@ Page({
           code: '',
         });
         break;
+      default:
+        break;
     }
   },
 
@@ -170,7 +172,7 @@ Page({
           app.globalData.hasLogin = true;
           wx.setStorageSync('userInfo', res.data.data.userInfo);
           wx.setStorage({
-            key: "token",
+            key: 'token',
             data: res.data.data.token,
             success: () => {
               wx.switchTab({ url: '/pages/ucenter/index/index' });
@@ -183,7 +185,7 @@ Page({
             showCancel: false,
           });
         }
-      }
+      },
     });
   },
 });

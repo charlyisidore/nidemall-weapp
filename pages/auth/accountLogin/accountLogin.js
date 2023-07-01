@@ -39,7 +39,7 @@ Page({
           app.globalData.hasLogin = true;
           wx.setStorageSync('userInfo', res.data.data.userInfo);
           wx.setStorage({
-            key: "token",
+            key: 'token',
             data: res.data.data.token,
             success: () => {
               wx.switchTab({ url: '/pages/ucenter/index/index' });
@@ -52,7 +52,7 @@ Page({
           app.globalData.hasLogin = false;
           util.showErrorToast('账户登录失败');
         }
-      }
+      },
     });
   },
 
@@ -80,6 +80,8 @@ Page({
           password: '',
         });
         break;
+      default:
+        break;
     }
-  }
+  },
 });
