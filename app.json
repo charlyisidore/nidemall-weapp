@@ -1,6 +1,6 @@
 {
+  "entryPagePath": "pages/index/index",
   "pages": [
-    "pages/index/index",
     "pages/about/about",
     "pages/auth/accountLogin/accountLogin",
     "pages/auth/login/login",
@@ -21,6 +21,7 @@
     "pages/groupon/myGroupon/myGroupon",
     "pages/help/help",
     "pages/hotGoods/hotGoods",
+    "pages/index/index",
     "pages/newGoods/newGoods",
     "pages/payResult/payResult",
     "pages/search/search",
