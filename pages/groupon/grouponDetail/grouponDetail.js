@@ -56,7 +56,7 @@ Page({
           ];
           active = 2;
           activeIcon = 'fail';
-          activeColor = '#EE0A24';
+          activeColor = '#ee0a24';
         }
         this.setData({
           joiners: res.data.joiners,

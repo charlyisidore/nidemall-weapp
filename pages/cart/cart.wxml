@@ -3,7 +3,7 @@
   <view class="no-login" wx:if="{{!hasLogin}}">
     <view class="c">
       <text>还没有登录</text>
-      <button style="background-color:#A9A9A9" bindtap="handleLoginTap">去登录</button>
+      <button style="background-color:#a9a9a9" bindtap="handleLoginTap">去登录</button>
     </view>
   </view>
   <view class="login" wx:else>
