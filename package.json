@@ -6,6 +6,7 @@
   "author": "Charly Lersteau",
   "license": "MIT",
   "dependencies": {
-    "@vant/weapp": "^1.10.19"
+    "@vant/weapp": "^1.10.19",
+    "wx-minicomponent": "^1.2.0"
   }
 }
