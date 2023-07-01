@@ -6,7 +6,7 @@
       <button style="background-color:#A9A9A9" bindtap="handleLoginTap">去登录</button>
     </view>
   </view>
-  <view class='login' wx:else>
+  <view class="login" wx:else>
     <view class="service-policy">
       <view class="item">30天无忧退货</view>
       <view class="item">48小时快速退款</view>
@@ -49,7 +49,7 @@
       <view class="cart-bottom">
         <van-checkbox value="{{ checkedAllStatus }}" bind:change="handleCheckAllChange">全选（{{cartTotal.checkedGoodsCount}}）</van-checkbox>
         <view class="total">{{!isEditCart ? '￥'+cartTotal.checkedGoodsAmount : ''}}</view>
-        <view class='action_btn_area'>
+        <view class="action_btn_area">
           <view class="{{!isEditCart ? 'edit' : 'sure'}}" bindtap="handleEditCartTap">{{!isEditCart ? '编辑' : '完成'}}</view>
           <view class="delete" bindtap="handleDeleteCartTap" wx:if="{{isEditCart}}">删除({{cartTotal.checkedGoodsCount}})</view>
           <view class="checkout" bindtap="handleCheckoutTap" wx:if="{{!isEditCart}}">下单</view>

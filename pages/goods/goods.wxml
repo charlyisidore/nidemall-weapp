@@ -6,8 +6,8 @@
     </swiper-item>
   </swiper>
   <!-- 分享 -->
-  <view class='goods_name'>
-    <view class='goods_name_left'>{{goods.name}}</view>
+  <view class="goods_name">
+    <view class="goods_name_left">{{goods.name}}</view>
     <view hidden="{{!canShare}}" class="goods_name_right" bindtap="shareFriendOrCircle">分享</view>
   </view>
   <view class="share-pop-box" hidden="{{!openShare}}">
@@ -15,18 +15,18 @@
       <view class="close" bindtap="closeShare">
         <van-icon class="icon" name="cross" />
       </view>
-      <view class='share-info'>
+      <view class="share-info">
         <button class="sharebtn" open-type="share" wx:if="{{!isGroupon}}">
-          <image class='sharebtn_image' src='/static/images/wechat.png'></image>
-          <view class='sharebtn_text'>分享给好友</view>
+          <image class="sharebtn_image" src="/static/images/wechat.png"></image>
+          <view class="sharebtn_text">分享给好友</view>
         </button>
         <button class="savesharebtn" open-type="openSetting" bindopensetting="handleSetting" wx:if="{{(!isGroupon) && (!canWrite)}}">
-          <image class='sharebtn_image' src='/static/images/friend.png'></image>
-          <view class='sharebtn_text'>生成海报</view>
+          <image class="sharebtn_image" src="/static/images/friend.png"></image>
+          <view class="sharebtn_text">生成海报</view>
         </button>
         <button class="savesharebtn" bindtap="saveShare" wx:if="{{!isGroupon && canWrite}}">
-          <image class='sharebtn_image' src='/static/images/friend.png'></image>
-          <view class='sharebtn_text'>生成海报</view>
+          <image class="sharebtn_image" src="/static/images/friend.png"></image>
+          <view class="sharebtn_text">生成海报</view>
         </button>
       </view>
     </view>

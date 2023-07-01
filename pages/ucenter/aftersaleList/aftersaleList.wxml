@@ -1,16 +1,16 @@
 <!--pages/ucenter/aftersaleList/aftersaleList.wxml-->
 <view class="container">
   <view class="aftersales-switch">
-    <view class="item {{ showType == 1 ? 'active' : ''}}" bindtap="handleSwitchTabTap" data-index='1'>
+    <view class="item {{ showType == 1 ? 'active' : ''}}" bindtap="handleSwitchTabTap" data-index="1">
       <view class="txt">申请中</view>
     </view>
-    <view class="item {{ showType == 2 ? 'active' : ''}}" bindtap="handleSwitchTabTap" data-index='2'>
+    <view class="item {{ showType == 2 ? 'active' : ''}}" bindtap="handleSwitchTabTap" data-index="2">
       <view class="txt">处理中</view>
     </view>
-    <view class="item {{ showType == 3 ? 'active' : ''}}" bindtap="handleSwitchTabTap" data-index='3'>
+    <view class="item {{ showType == 3 ? 'active' : ''}}" bindtap="handleSwitchTabTap" data-index="3">
       <view class="txt">已完成</view>
     </view>
-    <view class="item {{ showType == 4 ? 'active' : ''}}" bindtap="handleSwitchTabTap" data-index='4'>
+    <view class="item {{ showType == 4 ? 'active' : ''}}" bindtap="handleSwitchTabTap" data-index="4">
       <view class="txt">已拒绝</view>
     </view>
   </view>

@@ -1,10 +1,10 @@
 <!--pages/ucenter/collect/collect.wxml-->
 <view class="container">
   <view class="collect-switch">
-    <view class="item {{ type == 0 ? 'active' : ''}}" bindtap="handleSwitchTabTap" data-index='0'>
+    <view class="item {{ type == 0 ? 'active' : ''}}" bindtap="handleSwitchTabTap" data-index="0">
       <view class="txt">商品收藏</view>
     </view>
-    <view class="item {{ type == 1 ? 'active' : ''}}" bindtap="handleSwitchTabTap" data-index='1'>
+    <view class="item {{ type == 1 ? 'active' : ''}}" bindtap="handleSwitchTabTap" data-index="1">
       <view class="txt">专题收藏</view>
     </view>
   </view>
