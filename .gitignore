@@ -1,5 +1,6 @@
 node_modules/
 miniprogram_npm/
+*.log
 
 # https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html
 project.private.config.json

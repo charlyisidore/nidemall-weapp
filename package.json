@@ -4,5 +4,13 @@
   "main": "app.js",
   "repository": "https://github.com/charlyisidore/nidemall-weapp",
   "author": "Charly Lersteau",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint --ext .js config/ pages/ utils/"
+  },
+  "devDependencies": {
+    "eslint": "^7.32.0 || ^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2"
+  }
 }
