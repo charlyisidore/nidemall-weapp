@@ -19,19 +19,19 @@ Page({
     wx.showLoading({ title: '加载中...' });
 
     try {
-      const cartId = wx.getStorageSync('cartId');
+      let cartId = wx.getStorageSync('cartId');
       if (!cartId) {
         cartId = 0;
       }
-      const couponId = wx.getStorageSync('couponId');
+      let couponId = wx.getStorageSync('couponId');
       if (!couponId) {
         couponId = 0;
       }
-      const userCouponId = wx.getStorageSync('userCouponId');
+      let userCouponId = wx.getStorageSync('userCouponId');
       if (!userCouponId) {
         userCouponId = 0;
       }
-      const grouponRulesId = wx.getStorageSync('grouponRulesId');
+      let grouponRulesId = wx.getStorageSync('grouponRulesId');
       if (!grouponRulesId) {
         grouponRulesId = 0;
       }
@@ -91,4 +91,4 @@ Page({
         wx.hideToast();
       });
   },
-})
+});

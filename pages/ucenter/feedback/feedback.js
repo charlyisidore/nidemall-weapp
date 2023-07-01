@@ -103,7 +103,7 @@ Page({
         feedType: this.data.array[this.data.index],
         content: this.data.content,
         hasPicture: this.data.hasPicture,
-        picUrls: this.data.picUrls
+        picUrls: this.data.picUrls,
       }, 'POST')
       .then((res) => {
         wx.hideLoading();
@@ -160,4 +160,4 @@ Page({
       console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend);
     });
   },
-})
+});

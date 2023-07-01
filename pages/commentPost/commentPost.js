@@ -161,4 +161,4 @@ Page({
       console.log('预期需要上传的数据总长度', res.totalBytesExpectedToSend);
     });
   },
-})
+});

@@ -68,4 +68,4 @@ Page({
         wx.hideToast();
       });
   },
-})
+});

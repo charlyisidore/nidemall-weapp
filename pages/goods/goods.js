@@ -591,4 +591,4 @@ Page({
   handleOpenCartPageTap() {
     wx.switchTab({ url: '/pages/cart/cart' });
   },
-})
+});

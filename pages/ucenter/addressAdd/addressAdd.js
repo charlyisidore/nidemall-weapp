@@ -81,9 +81,9 @@ Page({
     const address = this.data.address;
     if (address.areaCode > 0) {
       const selectRegionList = this.data.selectRegionList;
-      selectRegionList[0].code = address.areaCode.slice(0, 2) + '0000';
+      selectRegionList[0].code = `${address.areaCode.slice(0, 2)}0000`;
       selectRegionList[0].name = address.province;
-      selectRegionList[1].code = address.areaCode.slice(0, 4) + '00';
+      selectRegionList[1].code = `${address.areaCode.slice(0, 4)}00`;
       selectRegionList[1].name = address.city;
       selectRegionList[2].code = address.areaCode;
       selectRegionList[2].name = address.county;
@@ -123,7 +123,8 @@ Page({
     const selectRegionList = this.data.selectRegionList;
 
     // 判断是否可点击
-    if (regionTypeIndex + 1 == this.data.regionType || (regionTypeIndex - 1 >= 0 && selectRegionList[regionTypeIndex - 1].code <= 0)) {
+    if (regionTypeIndex + 1 == this.data.regionType ||
+      (regionTypeIndex - 1 >= 0 && selectRegionList[regionTypeIndex - 1].code <= 0)) {
       return false;
     }
 
@@ -153,7 +154,7 @@ Page({
     });
 
     this.setData({
-      regionList: regionList,
+      regionList,
       regionType: regionTypeIndex + 1,
     });
 
@@ -178,11 +179,11 @@ Page({
           // 标记已选择的
           item.selected = (this.data.selectRegionList[this.data.regionType - 1].code == item.code);
           return item;
-        })
+        });
 
       this.setData({
         regionList,
-      })
+      });
 
       this.setRegionDoneStatus();
       return;
@@ -192,7 +193,7 @@ Page({
     selectRegionList = selectRegionList.map((item, index) => {
       if (index > regionType - 1) {
         item.code = 0;
-        item.name = index == 1 ? '城市' : '区县';
+        item.name = (1 == index) ? '城市' : '区县';
       }
       return item;
     });
@@ -206,10 +207,10 @@ Page({
     let regionList = [];
     if (1 === regionType) {
       // 点击省级，取市级
-      regionList = area.getList('city', code.slice(0, 2))
+      regionList = area.getList('city', code.slice(0, 2));
     } else {
       // 点击市级，取县级
-      regionList = area.getList('county', code.slice(0, 4))
+      regionList = area.getList('county', code.slice(0, 4));
     }
 
     this.setData({
@@ -292,7 +293,7 @@ Page({
         if ('pages/checkout/checkout' == prevPage.route) {
           prevPage.setData({
             addressId: res.data,
-          })
+          });
           try {
             wx.setStorageSync('addressId', res.data);
           } catch (e) {}
@@ -315,7 +316,7 @@ Page({
 
   setRegionDoneStatus() {
     this.setData({
-      selectRegionDone: this.data.selectRegionList.every(item => (0 != item.code)),
+      selectRegionDone: this.data.selectRegionList.every((item) => (0 != item.code)),
     });
   },
-})
+});

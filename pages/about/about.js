@@ -45,4 +45,4 @@ Page({
       phoneNumber: this.data.phone,
     });
   },
-})
+});

@@ -40,7 +40,7 @@ Page({
       type: event.currentTarget.dataset.index,
       page: 1,
       limit: 10,
-      totalPages: 1
+      totalPages: 1,
     });
     this.loadCollectList();
   },
@@ -48,9 +48,9 @@ Page({
   handleOpenCollectTap(event) {
     const index = event.currentTarget.dataset.index;
     const valueId = this.data.collectList[index].valueId;
-    // 触摸时间距离页面打开的毫秒数  
+    // 触摸时间距离页面打开的毫秒数
     const touchTime = this.data.touchEnd - this.data.touchStart;
-    // 如果按下时间大于350为长按  
+    // 如果按下时间大于350为长按
     if (touchTime > 350) {
       wx.showModal({
         title: '',
@@ -59,7 +59,7 @@ Page({
           if (res.confirm) {
             util.request(api.CollectAddOrDelete, {
                 type: this.data.type,
-                valueId: valueId,
+                valueId,
               }, 'POST')
               .then((res) => {
                 if (0 !== res.errno) {
@@ -76,15 +76,15 @@ Page({
                 });
               });
           }
-        }
+        },
       });
     } else {
       switch (this.data.type) {
-        default:
-          wx.navigateTo({ url: `/pages/goods/goods?id=${valueId}` });
-          break;
         case 1:
           wx.navigateTo({ url: `/pages/topicDetail/topicDetail?id=${valueId}` });
+          break;
+        default:
+          wx.navigateTo({ url: `/pages/goods/goods?id=${valueId}` });
           break;
       }
     }
@@ -107,7 +107,7 @@ Page({
     util.request(api.CollectList, {
         type: this.data.type,
         page: this.data.page,
-        limit: this.data.limit
+        limit: this.data.limit,
       })
       .then((res) => {
         if (0 !== res.errno) {
@@ -115,11 +115,11 @@ Page({
         }
         this.setData({
           collectList: this.data.collectList.concat(res.data.list),
-          totalPages: res.data.pages
+          totalPages: res.data.pages,
         });
       })
       .finally(() => {
         wx.hideLoading();
       });
   },
-})
+});

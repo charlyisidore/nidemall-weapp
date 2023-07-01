@@ -62,4 +62,4 @@ Page({
     }
     this.loadCurrentCategory(categoryId);
   },
-})
+});

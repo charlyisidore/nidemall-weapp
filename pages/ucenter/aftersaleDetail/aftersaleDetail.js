@@ -52,4 +52,4 @@ Page({
         wx.hideLoading();
       });
   },
-})
+});

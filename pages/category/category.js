@@ -130,4 +130,4 @@ Page({
 
     this.loadCategoryInfo();
   },
-})
+});

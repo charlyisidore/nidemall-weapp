@@ -163,7 +163,7 @@ Page({
         wx.removeStorageSync('token');
         wx.removeStorageSync('userInfo');
         wx.reLaunch({ url: '/pages/index/index' });
-      }
+      },
     });
   },
 
@@ -178,4 +178,4 @@ Page({
   navigateToLogin() {
     wx.navigateTo({ url: '/pages/auth/login/login' });
   },
-})
+});

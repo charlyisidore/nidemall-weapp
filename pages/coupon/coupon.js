@@ -86,4 +86,4 @@ Page({
         wx.hideToast();
       });
   },
-})
+});

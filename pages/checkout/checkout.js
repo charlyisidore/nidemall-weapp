@@ -184,4 +184,4 @@ Page({
         wx.hideLoading();
       });
   },
-})
+});

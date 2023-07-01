@@ -42,12 +42,10 @@ Page({
 
   handleGoExchangeTap() {
     if (0 === this.data.code.length) {
-      util.showErrorToast("请输入兑换码");
+      util.showErrorToast('请输入兑换码');
       return;
     }
-    util.request(api.CouponExchange, {
-        code: this.data.code
-      }, 'POST')
+    util.request(api.CouponExchange, { code: this.data.code }, 'POST')
       .then((res) => {
         if (0 !== res.errno) {
           util.showErrorToast(res.errmsg);
@@ -58,7 +56,7 @@ Page({
           code: '',
         });
         wx.showToast({
-          title: "领取成功",
+          title: '领取成功',
           duration: 2000,
         });
       });
@@ -120,4 +118,4 @@ Page({
         });
       });
   },
-})
+});

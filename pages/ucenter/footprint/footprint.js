@@ -39,7 +39,7 @@ Page({
     const footprintId = this.data.footprintList[index][iindex].id;
     const goodsId = this.data.footprintList[index][iindex].goodsId;
     const touchTime = this.data.touchEnd - this.data.touchStart;
-    // 如果按下时间大于350为长按  
+    // 如果按下时间大于350为长按
     if (touchTime > 350) {
       wx.showModal({
         title: '',
@@ -66,7 +66,7 @@ Page({
                 footprintList: this.data.footprintList,
               });
             });
-        }
+        },
       });
     } else {
       wx.navigateTo({ url: `/pages/goods/goods?id=${goodsId}` });
@@ -95,16 +95,16 @@ Page({
       })
       .then((res) => {
         if (0 === res.errno) {
-          let f1 = this.data.footprintList;
-          let f2 = res.data.list;
+          const f1 = this.data.footprintList;
+          const f2 = res.data.list;
           for (let i = 0; i < f2.length; i++) {
             f2[i].addDate = f2[i].addTime.substring(0, 10);
-            let last = f1.length - 1;
+            const last = f1.length - 1;
             if (last >= 0 && f1[last][0].addDate === f2[i].addDate) {
               f1[last].push(f2[i]);
             } else {
-              let tmp = [];
-              tmp.push(f2[i])
+              const tmp = [];
+              tmp.push(f2[i]);
               f1.push(tmp);
             }
           }
@@ -116,4 +116,4 @@ Page({
         wx.hideLoading();
       });
   },
-})
+});

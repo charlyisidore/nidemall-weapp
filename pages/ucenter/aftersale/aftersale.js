@@ -9,7 +9,7 @@ Page({
     orderInfo: {},
     orderGoods: [],
     aftersale: {
-      pictures: []
+      pictures: [],
     },
     columns: [
       '未收货退款',
@@ -146,4 +146,4 @@ Page({
         wx.hideLoading();
       });
   },
-})
+});

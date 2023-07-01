@@ -44,7 +44,7 @@ Page({
       showType: event.currentTarget.dataset.index,
       page: 1,
       limit: 10,
-      totalPages: 1
+      totalPages: 1,
     });
     this.loadOrderList();
   },
@@ -65,4 +65,4 @@ Page({
         });
       });
   },
-})
+});

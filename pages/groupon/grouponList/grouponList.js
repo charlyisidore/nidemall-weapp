@@ -68,4 +68,4 @@ Page({
     });
     this.loadGrouponList();
   },
-})
+});
