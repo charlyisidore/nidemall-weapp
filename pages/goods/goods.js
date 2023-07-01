@@ -184,21 +184,21 @@ Page({
         if (0 !== res.errno) {
           return;
         }
-        const _specificationList = res.data.specificationList;
-        const _tmpPicUrl = res.data.productList[0].url;
+        const specificationList = res.data.specificationList;
+        const tmpPicUrl = res.data.productList[0].url;
         // 如果仅仅存在一种货品，那么商品页面初始化时默认checked
-        if (1 == _specificationList.length && 1 == _specificationList[0].valueList.length) {
-          _specificationList[0].valueList[0].checked = true;
+        if (1 == specificationList.length && 1 == specificationList[0].valueList.length) {
+          specificationList[0].valueList[0].checked = true;
           // 如果仅仅存在一种货品，那么商品价格应该和货品价格一致
           // 这里检测一下
-          const _productPrice = res.data.productList[0].price;
-          const _goodsPrice = res.data.info.retailPrice;
-          if (_productPrice != _goodsPrice) {
+          const productPrice = res.data.productList[0].price;
+          const goodsPrice = res.data.info.retailPrice;
+          if (productPrice != goodsPrice) {
             console.error('商品数量价格和货品不一致');
           }
           this.setData({
-            checkedSpecText: _specificationList[0].valueList[0].value,
-            tmpSpecText: `已选择：${_specificationList[0].valueList[0].value}`,
+            checkedSpecText: specificationList[0].valueList[0].value,
+            tmpSpecText: `已选择：${specificationList[0].valueList[0].value}`,
           });
         }
         res.data.info.path = `pages/goods/goods?id=${this.data.id}`;
@@ -217,7 +217,7 @@ Page({
           groupon: res.data.groupon,
           canShare: res.data.share,
           // 选择规格时，默认展示第一张图片
-          tmpPicUrl: _tmpPicUrl,
+          tmpPicUrl,
         });
 
         // 如果是通过分享的团购参加团购，则团购项目应该与分享的一致并且不可更改
@@ -266,22 +266,22 @@ Page({
     }
 
     const specValueId = event.currentTarget.dataset.valueId;
-    const _grouponList = this.data.groupon;
+    const grouponList = this.data.groupon;
 
-    for (let i = 0; i < _grouponList.length; i++) {
-      if (_grouponList[i].id == specValueId) {
-        if (_grouponList[i].checked) {
-          _grouponList[i].checked = false;
+    for (let i = 0; i < grouponList.length; i++) {
+      if (grouponList[i].id == specValueId) {
+        if (grouponList[i].checked) {
+          grouponList[i].checked = false;
         } else {
-          _grouponList[i].checked = true;
+          grouponList[i].checked = true;
         }
       } else {
-        _grouponList[i].checked = false;
+        grouponList[i].checked = false;
       }
     }
 
     this.setData({
-      groupon: _grouponList,
+      groupon: grouponList,
     });
   },
 
@@ -292,25 +292,25 @@ Page({
 
     // 判断是否可以点击
     // TODO 性能优化，可在wx:for中添加index，可以直接获取点击的属性名和属性值，不用循环
-    const _specificationList = this.data.specificationList;
-    for (let i = 0; i < _specificationList.length; i++) {
-      if (_specificationList[i].name === specName) {
-        for (let j = 0; j < _specificationList[i].valueList.length; j++) {
-          if (_specificationList[i].valueList[j].id == specValueId) {
+    const specificationList = this.data.specificationList;
+    for (let i = 0; i < specificationList.length; i++) {
+      if (specificationList[i].name === specName) {
+        for (let j = 0; j < specificationList[i].valueList.length; j++) {
+          if (specificationList[i].valueList[j].id == specValueId) {
             // 如果已经选中，则反选
-            if (_specificationList[i].valueList[j].checked) {
-              _specificationList[i].valueList[j].checked = false;
+            if (specificationList[i].valueList[j].checked) {
+              specificationList[i].valueList[j].checked = false;
             } else {
-              _specificationList[i].valueList[j].checked = true;
+              specificationList[i].valueList[j].checked = true;
             }
           } else {
-            _specificationList[i].valueList[j].checked = false;
+            specificationList[i].valueList[j].checked = false;
           }
         }
       }
     }
     this.setData({
-      specificationList: _specificationList,
+      specificationList,
     });
     // 重新计算spec改变后的信息
     this.changeSpecInfo();
@@ -320,10 +320,10 @@ Page({
   // 获取选中的团购信息
   getCheckedGrouponValue() {
     let checkedValues = {};
-    const _grouponList = this.data.groupon;
-    for (let i = 0; i < _grouponList.length; i++) {
-      if (_grouponList[i].checked) {
-        checkedValues = _grouponList[i];
+    const grouponList = this.data.groupon;
+    for (let i = 0; i < grouponList.length; i++) {
+      if (grouponList[i].checked) {
+        checkedValues = grouponList[i];
       }
     }
     return checkedValues;
@@ -332,20 +332,20 @@ Page({
   // 获取选中的规格信息
   getCheckedSpecValue() {
     const checkedValues = [];
-    const _specificationList = this.data.specificationList;
-    for (let i = 0; i < _specificationList.length; i++) {
-      const _checkedObj = {
-        name: _specificationList[i].name,
+    const specificationList = this.data.specificationList;
+    for (let i = 0; i < specificationList.length; i++) {
+      const checkedObj = {
+        name: specificationList[i].name,
         valueId: 0,
         valueText: '',
       };
-      for (let j = 0; j < _specificationList[i].valueList.length; j++) {
-        if (_specificationList[i].valueList[j].checked) {
-          _checkedObj.valueId = _specificationList[i].valueList[j].id;
-          _checkedObj.valueText = _specificationList[i].valueList[j].value;
+      for (let j = 0; j < specificationList[i].valueList.length; j++) {
+        if (specificationList[i].valueList[j].checked) {
+          checkedObj.valueId = specificationList[i].valueList[j].id;
+          checkedObj.valueText = specificationList[i].valueList[j].value;
         }
       }
-      checkedValues.push(_checkedObj);
+      checkedValues.push(checkedObj);
     }
     return checkedValues;
   },

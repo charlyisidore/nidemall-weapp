@@ -18,7 +18,7 @@ module.exports = {
     'no-param-reassign': 'off',
     'no-plusplus': 'off',
     'no-shadow': 'off',
-    'no-underscore-dangle': 'warn',
+    'no-underscore-dangle': 'error',
     'operator-linebreak': ['error', 'after'],
     'prefer-destructuring': 'off',
     'prefer-promise-reject-errors': 'off',
