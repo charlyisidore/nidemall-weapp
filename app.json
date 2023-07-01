@@ -43,39 +43,39 @@
     "pages/ucenter/orderDetail/orderDetail"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "backgroundTextStyle": "@backgroundTextStyle",
     "navigationBarTitleText": "nidemall小程序商城",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "@navigationBarBackgroundColor",
+    "navigationBarTextStyle": "@navigationBarTextStyle"
   },
   "tabBar": {
-    "color": "#666",
-    "selectedColor": "#ab956d",
-    "backgroundColor": "#fafafa",
-    "borderStyle": "white",
+    "color": "@tabBarColor",
+    "selectedColor": "@tabBarSelectedColor",
+    "backgroundColor": "@tabBarBackgroundColor",
+    "borderStyle": "@tabBarBorderStyle",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "iconPath": "static/images/home.png",
-        "selectedIconPath": "static/images/home@selected.png",
+        "iconPath": "@homeIconPath",
+        "selectedIconPath": "@homeSelectedIconPath",
         "text": "首页"
       },
       {
         "pagePath": "pages/catalog/catalog",
-        "iconPath": "static/images/category.png",
-        "selectedIconPath": "static/images/category@selected.png",
+        "iconPath": "@categoryIconPath",
+        "selectedIconPath": "@categorySelectedIconPath",
         "text": "分类"
       },
       {
         "pagePath": "pages/cart/cart",
-        "iconPath": "static/images/cart.png",
-        "selectedIconPath": "static/images/cart@selected.png",
+        "iconPath": "@cartIconPath",
+        "selectedIconPath": "@cartSelectedIconPath",
         "text": "购物车"
       },
       {
         "pagePath": "pages/ucenter/index/index",
-        "iconPath": "static/images/my.png",
-        "selectedIconPath": "static/images/my@selected.png",
+        "iconPath": "@myIconPath",
+        "selectedIconPath": "@mySelectedIconPath",
         "text": "个人"
       }
     ]
@@ -87,5 +87,7 @@
     "downloadFile": 10000
   },
   "sitemapLocation": "sitemap.json",
+  "themeLocation": "theme.json",
+  "darkmode": false,
   "lazyCodeLoading": "requiredComponents"
 }

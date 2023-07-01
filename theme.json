@@ -1,0 +1,36 @@
+{
+  "light": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "tabBarColor": "#666",
+    "tabBarSelectedColor": "#ab956d",
+    "tabBarBackgroundColor": "#fafafa",
+    "tabBarBorderStyle": "white",
+    "homeIconPath": "static/images/home.png",
+    "homeSelectedIconPath": "static/images/home@selected.png",
+    "categoryIconPath": "static/images/category.png",
+    "categorySelectedIconPath": "static/images/category@selected.png",
+    "cartIconPath": "static/images/cart.png",
+    "cartSelectedIconPath": "static/images/cart@selected.png",
+    "myIconPath": "static/images/my.png",
+    "mySelectedIconPath": "static/images/my@selected.png"
+  },
+  "dark": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "tabBarColor": "#666",
+    "tabBarSelectedColor": "#ab956d",
+    "tabBarBackgroundColor": "#fafafa",
+    "tabBarBorderStyle": "white",
+    "homeIconPath": "static/images/home.png",
+    "homeSelectedIconPath": "static/images/home@selected.png",
+    "categoryIconPath": "static/images/category.png",
+    "categorySelectedIconPath": "static/images/category@selected.png",
+    "cartIconPath": "static/images/cart.png",
+    "cartSelectedIconPath": "static/images/cart@selected.png",
+    "myIconPath": "static/images/my.png",
+    "mySelectedIconPath": "static/images/my@selected.png"
+  }
+}
