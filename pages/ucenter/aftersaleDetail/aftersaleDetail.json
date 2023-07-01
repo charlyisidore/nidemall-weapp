@@ -1,9 +1,9 @@
 {
   "navigationBarTitleText": "售后详情",
   "usingComponents": {
-    "van-cell": "@vant/weapp/cell/index",
-    "van-cell-group": "@vant/weapp/cell-group/index",
-    "van-field": "@vant/weapp/field/index",
-    "van-uploader": "@vant/weapp/uploader/index"
+    "van-cell": "/components/vant-weapp/cell/index",
+    "van-cell-group": "/components/vant-weapp/cell-group/index",
+    "van-field": "/components/vant-weapp/field/index",
+    "van-uploader": "/components/vant-weapp/uploader/index"
   }
 }

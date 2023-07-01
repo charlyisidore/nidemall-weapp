@@ -2,7 +2,7 @@
   "navigationBarTitleText": "首页",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "van-icon": "@vant/weapp/icon/index",
-    "van-tag": "@vant/weapp/tag/index"
+    "van-icon": "/components/vant-weapp/icon/index",
+    "van-tag": "/components/vant-weapp/tag/index"
   }
 }

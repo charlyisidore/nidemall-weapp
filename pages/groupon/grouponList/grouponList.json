@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "团购专区",
   "usingComponents": {
-    "van-tag": "@vant/weapp/tag/index"
+    "van-tag": "/components/vant-weapp/tag/index"
   }
 }
