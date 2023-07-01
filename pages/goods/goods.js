@@ -100,7 +100,7 @@ Page({
     };
   },
 
-  shareFriendOrCircle() {
+  handleShareFriendOrCircleTap() {
     if (false === this.data.openShare) {
       this.setData({
         openShare: !this.data.openShare,
@@ -110,7 +110,7 @@ Page({
     }
   },
 
-  handleSetting(event) {
+  handleOpenSetting(event) {
     if (!event.detail.authSetting['scope.writePhotosAlbum']) {
       wx.showModal({
         title: '警告',
@@ -129,7 +129,7 @@ Page({
   },
 
   // 保存分享图
-  saveShare() {
+  handleSaveShareTap() {
     wx.downloadFile({
       url: this.data.shareImage,
       success: (res) => {
@@ -261,7 +261,7 @@ Page({
   },
 
   // 团购选择
-  clickGroupon(event) {
+  handleClickGrouponTap(event) {
     // 参与团购，不可更改选择
     if (this.data.isGroupon) {
       return;
@@ -288,7 +288,7 @@ Page({
   },
 
   // 规格选择
-  clickSkuValue(event) {
+  handleClickSkuValueTap(event) {
     let specName = event.currentTarget.dataset.name;
     let specValueId = event.currentTarget.dataset.valueId;
 
@@ -423,7 +423,7 @@ Page({
   },
 
   // 添加或是取消收藏
-  addCollectOrNot() {
+  handleAddCollectOrNotTap() {
     util.request(api.CollectAddOrDelete, {
         type: 0,
         valueId: this.data.id,
@@ -444,7 +444,7 @@ Page({
   },
 
   // 立即购买（先自动加入购物车）
-  addFast() {
+  handleAddFastTap() {
     if (false == this.data.openAttr) {
       // 打开规格选择窗口
       this.setData({
@@ -496,7 +496,7 @@ Page({
   },
 
   // 添加到购物车
-  addToCart() {
+  handleAddToCartTap() {
     if (false == this.data.openAttr) {
       // 打开规格选择窗口
       this.setData({
@@ -555,19 +555,19 @@ Page({
       });
   },
 
-  cutNumber() {
+  handleCutNumberTap() {
     this.setData({
       number: Math.max(1, this.data.number - 1),
     });
   },
 
-  addNumber() {
+  handleAddNumberTap() {
     this.setData({
       number: this.data.number + 1,
     });
   },
 
-  switchAttrPop() {
+  handleSwitchAttrPopTap() {
     if (false != this.data.openAttr) {
       return;
     }
@@ -576,19 +576,19 @@ Page({
     });
   },
 
-  closeAttr() {
+  handleCloseAttrTap() {
     this.setData({
       openAttr: false,
     });
   },
 
-  closeShare() {
+  handleCloseShareTap() {
     this.setData({
       openShare: false,
     });
   },
 
-  openCartPage() {
+  handleOpenCartPageTap() {
     wx.switchTab({ url: '/pages/cart/cart' });
   },
 })
