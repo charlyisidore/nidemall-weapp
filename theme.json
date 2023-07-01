@@ -1,8 +1,11 @@
 {
   "light": {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTextStyle": "black",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "light",
+    "backgroundColorTop": "#fff",
+    "backgroundColorBottom": "#fff",
     "tabBarColor": "#666",
     "tabBarSelectedColor": "#ab956d",
     "tabBarBackgroundColor": "#fafafa",
@@ -17,9 +20,12 @@
     "mySelectedIconPath": "static/images/my@selected.png"
   },
   "dark": {
-    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTextStyle": "black",
+    "backgroundColor": "#fff",
+    "backgroundTextStyle": "light",
+    "backgroundColorTop": "#fff",
+    "backgroundColorBottom": "#fff",
     "tabBarColor": "#666",
     "tabBarSelectedColor": "#ab956d",
     "tabBarBackgroundColor": "#fafafa",
