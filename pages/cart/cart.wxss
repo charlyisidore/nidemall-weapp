@@ -126,14 +126,14 @@ page {
 }
 
 .cart-view .item {
+  display: flex;
   height: 164rpx;
   width: 100%;
   overflow: hidden;
 }
 
 .cart-view .item .van-checkbox {
-  float: left;
-  margin: 65rpx 18rpx 65rpx 18rpx;
+  margin: 65rpx 0 65rpx 18rpx;
 }
 
 .cart-view .item .van-checkbox .van-icon {
@@ -141,14 +141,13 @@ page {
 }
 
 .cart-view .item .cart-goods {
-  float: left;
+  display: flex;
   height: 164rpx;
   width: 672rpx;
   border-bottom: 1px solid #f4f4f4;
 }
 
 .cart-view .item .img {
-  float: left;
   height: 125rpx;
   width: 125rpx;
   background: #f4f4f4;
@@ -156,10 +155,9 @@ page {
 }
 
 .cart-view .item .info {
-  float: left;
   height: 125rpx;
   width: 503rpx;
-  margin: 19.5rpx 26rpx 19.5rpx 0;
+  padding: 19.5rpx 6rpx 19.5rpx 0;
 }
 
 .cart-view .item .t {
