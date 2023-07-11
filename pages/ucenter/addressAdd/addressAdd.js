@@ -31,7 +31,7 @@ Page({
 
   // https://developers.weixin.qq.com/miniprogram/dev/reference/api/Page.html#onLoad-Object-query
   onLoad(options) {
-    if (!options.id) {
+    if (!options.id || 0 == options.id) {
       return;
     }
     this.setData({
