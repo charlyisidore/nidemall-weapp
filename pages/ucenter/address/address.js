@@ -24,7 +24,7 @@ Page({
         wx.setStorageSync('addressId', addressId);
       } catch (e) {}
 
-      if (addressId) {
+      if (addressId && 0 != addressId) {
         wx.navigateBack();
       } else {
         wx.navigateTo({ url: `/pages/ucenter/addressAdd/addressAdd?id=${addressId}` });
